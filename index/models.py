@@ -1,5 +1,17 @@
 from django.db import models
 
+<<<<<<< HEAD
+=======
+# Meal
+  # mealtype (lunch, dinner, breakfast, snack, dessert, misc)
+  # who you ate with
+  # date
+  # location
+  # recipe
+  # notes/impressions
+  # type of food (beef, chicken, vegetarian)
+  # would you make this again (boolean)
+>>>>>>> a7c0391323410f0da5046dfc8d633040d23ba10c
 
 class Person(models.Model):
   name = models.CharField(max_length=200)
