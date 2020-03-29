@@ -35,6 +35,6 @@ class Meal(models.Model):
   make_again = models.BooleanField(default=True)
 
   def __str__(self):
-    return self.meal_type
+    return self.meal_name
 
 
