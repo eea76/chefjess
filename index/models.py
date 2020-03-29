@@ -5,7 +5,7 @@ class Person(models.Model):
   name = models.CharField(max_length=200)
 
   def __str__(self):
-    return self.person
+    return self.name
 
 
 class MealType(models.Model):
@@ -25,6 +25,7 @@ class Cuisine(models.Model):
 
 
 class Meal(models.Model):
+  meal_name = models.CharField(max_length=200, null=True, blank=True)
   date = models.DateField()
   meal_type = models.ForeignKey(MealType, null=True, blank=True, on_delete=models.CASCADE)
   cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete=models.CASCADE)
@@ -32,4 +33,8 @@ class Meal(models.Model):
   location = models.CharField(max_length=200, null=True, blank=True)
   notes = models.TextField(null=True, blank=True)
   make_again = models.BooleanField(default=True)
+
+  def __str__(self):
+    return self.meal_type
+
 
