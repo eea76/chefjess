@@ -1,23 +1,5 @@
 from django.db import models
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a7c0391323410f0da5046dfc8d633040d23ba10c
-# Meal
-  # mealtype (lunch, dinner, breakfast, snack, dessert, misc)
-  # who you ate with
-  # date
-  # location
-  # recipe
-  # notes/impressions
-  # type of food (beef, chicken, vegetarian)
-  # would you make this again (boolean)
-<<<<<<< HEAD
->>>>>>> a7c0391323410f0da5046dfc8d633040d23ba10c
-=======
->>>>>>> a7c0391323410f0da5046dfc8d633040d23ba10c
 
 class Person(models.Model):
   name = models.CharField(max_length=200)
@@ -45,7 +27,7 @@ class Cuisine(models.Model):
 class Meal(models.Model):
   date = models.DateField()
   meal_type = models.ForeignKey(MealType, null=True, blank=True, on_delete=models.CASCADE)
-  cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete.models.CASCADE)
+  cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete=models.CASCADE)
   person = models.ManyToManyField(Person, null=True, blank=True)
   location = models.CharField(max_length=200, null=True, blank=True)
   notes = models.TextField(null=True, blank=True)
