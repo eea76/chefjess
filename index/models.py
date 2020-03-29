@@ -1,7 +1,10 @@
 from django.db import models
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a7c0391323410f0da5046dfc8d633040d23ba10c
 # Meal
   # mealtype (lunch, dinner, breakfast, snack, dessert, misc)
   # who you ate with
@@ -11,6 +14,9 @@ from django.db import models
   # notes/impressions
   # type of food (beef, chicken, vegetarian)
   # would you make this again (boolean)
+<<<<<<< HEAD
+>>>>>>> a7c0391323410f0da5046dfc8d633040d23ba10c
+=======
 >>>>>>> a7c0391323410f0da5046dfc8d633040d23ba10c
 
 class Person(models.Model):
