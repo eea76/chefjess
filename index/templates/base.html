@@ -7,13 +7,21 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Page Title</title>
+    <title>Chef Jess</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src=" {% static 'js/application.js' %}"></script>
 
   </head>
   <body>
+    {% if user.is_authenticated %}
+    <div class = "admin">
+
+        <a href="{% url 'new_meal' %}">New Meal</a>
+        <!-- <a href="{% url 'logout' %}">Log out</a> -->
+
+    </div>
+    {% endif %}
       {% block content %}
       {% endblock %}
   </body>
