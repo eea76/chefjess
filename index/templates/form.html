@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class = "container">
-    <h2>New meal</h2>
+    <h2>New {{ form.name }}</h2>
     <form method="POST">{% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Save</button>

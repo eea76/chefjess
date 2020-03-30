@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+  <div class="recipe-container">
+    <div class="recipe">
+      {{ recipe.recipe_name }}
+    </div>
+
+    {% if recipe.ingredient %}
+    <div class="ingredients">
+      <ul>Ingredients
+        {% for ingredient in recipe.ingredient.all %}
+        <li>{{ingredient.ingredient_name}}{% if ingredient.notes %} ({{ingredient.notes}})
+  {%endif%}</li>
+  {%endfor%}
+</ul>
+
+      </div>
+
+      <div class="recipe-notes">
+        {{ recipe.notes }}
+      </div>
+
+      {% endif %}
+
+
+
+
+
+
+<a href="/">Back to Home</a>
+
+</div>
+
+
+
+
+
+{% endblock %}
