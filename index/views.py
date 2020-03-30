@@ -7,6 +7,7 @@ def index(request):
   meals = Meal.objects.all()
   people = Person.objects.all()
 
+
   obj = {
     'meals' : meals,
     'people' : people,

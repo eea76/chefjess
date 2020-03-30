@@ -10,7 +10,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
   recipe_name = models.CharField(max_length=200)
-  ingredient = models.ForeignKey(Ingredient, null=True, blank=True, on_delete=models.CASCADE)
+  ingredient = models.ManyToManyField(Ingredient, null=True, blank=True)
   notes = models.CharField(max_length=200, null=True, blank=True)
 
   def __str__(self):
@@ -48,6 +48,7 @@ class Meal(models.Model):
   person = models.ManyToManyField(Person, null=True, blank=True)
   location = models.CharField(max_length=200, null=True, blank=True)
   notes = models.TextField(null=True, blank=True)
+  recipe = models.ForeignKey(Recipe, null=True, blank=True, on_delete=models.CASCADE)
   make_again = models.BooleanField(default=True)
 
   def __str__(self):
