@@ -2,7 +2,7 @@ from django.db import models
 
 class Ingredient(models.Model):
   ingredient_name = models.CharField(max_length=200)
-  notes = models.CharField(max_length=200, null=True, blank=True)
+  notes = models.TextField(max_length=200, null=True, blank=True)
 
   def __str__(self):
     return self.ingredient_name
@@ -11,7 +11,7 @@ class Ingredient(models.Model):
 class Recipe(models.Model):
   recipe_name = models.CharField(max_length=200)
   ingredient = models.ManyToManyField(Ingredient, null=True, blank=True)
-  notes = models.CharField(max_length=200, null=True, blank=True)
+  notes = models.TextField(max_length=200, null=True, blank=True)
 
   def __str__(self):
     return self.recipe_name
