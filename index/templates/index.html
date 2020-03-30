@@ -1,8 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
 <h1>Chef Jess's Blog</h1>
-<h2>Hello</h2>
+<hr>
+
+{% for meal in meals %}
+<h2>{{meal.date}}</h2>
+<h3>Meal: {{meal.meal_type}}</h3>
+<h3>{{meal.meal_name}}</h3>
+<h3>Cuisine: {{meal.cuisine}}</h3>
+<h4>Impressions:</h4>
+<p>{{meal.notes}}</p>
+<h4>People with me</h4>
+<p>{%for person in meal.person.all%}</p>
+  {{person}}
+  {% endfor %}
+{% endfor %}
+
 {% endblock %}
 
 

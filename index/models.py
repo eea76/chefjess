@@ -1,5 +1,19 @@
 from django.db import models
 
+class Ingredient(models.Model):
+  ingredient_name = models.CharField(max_length=200)
+
+  def __str__(self):
+    return self.ingredient_name
+
+
+class Recipe(models.Model):
+  recipe_name = models.CharField(max_length=200)
+  ingredient = models.ForeignKey(Ingredient, null=True, blank=True, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.recipe_name
+
 
 class Person(models.Model):
   name = models.CharField(max_length=200)
