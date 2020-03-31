@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 
 class Ingredient(models.Model):
   ingredient_name = models.CharField(max_length=200)
@@ -42,7 +44,7 @@ class Cuisine(models.Model):
 
 class Meal(models.Model):
   meal_name = models.CharField(max_length=200, null=True, blank=True)
-  date = models.DateField()
+  date = models.DateField(default=timezone.now, null=True)
   meal_type = models.ForeignKey(MealType, null=True, blank=True, on_delete=models.CASCADE)
   cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete=models.CASCADE)
   person = models.ManyToManyField(Person, null=True, blank=True)

@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 
-<h1>Chef Jess's Blog</h1>
+<h1>Meals</h1>
 <hr>
 
 <div class="meals-container">
 
 
   {% for meal in meals %}
-  <div class="meal-container">
+  <div class="meal">
     <div class="image-container">
       <div class="image">
         <img src="{% static 'img/meal_placeholder.jpg' %}" />
