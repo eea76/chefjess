@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from .forms import MealForm, RecipeForm
+from .forms import MealForm, RecipeForm, IngredientForm
 
 
 
@@ -31,5 +31,19 @@ def new_recipe(request):
       return redirect('recipe_detail', id=recipe.id)
   else:
     form = RecipeForm()
+
+  return render(request, 'form.html', {'form': form})
+
+
+@login_required
+def new_ingredient(request):
+  if request.method == 'POST':
+    form = IngredientForm(request.POST)
+    if form.is_valid():
+      ingredient = form.save(commit=False)
+      ingredient.save()
+      return redirect('new_ingredient')
+  else:
+    form = IngredientForm()
 
   return render(request, 'form.html', {'form': form})

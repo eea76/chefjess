@@ -7,8 +7,14 @@
 
 <div class="meals-container">
 
+
   {% for meal in meals %}
   <div class="meal-container">
+    <div class="image-container">
+      <div class="image">
+        <img src="{% static 'img/meal_placeholder.jpg' %}" />
+      </div>
+    </div>
     <a href="{% url 'meal_detail' meal_type=meal.meal_type id=meal.id %}">
       <h2 class="meal-name">{{meal.meal_name}}</h2>
     </a>

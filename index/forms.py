@@ -1,5 +1,5 @@
 from django import forms
-from .models import Meal, Recipe
+from .models import Meal, Recipe, Ingredient
 # from tinymce import TinyMCE
 
 # class TinyMCEWidget(TinyMCE):
@@ -31,6 +31,15 @@ class RecipeForm(forms.ModelForm):
     model = Recipe
     fields = ('recipe_name',
       'ingredient',
+      'notes'
+    )
+
+
+class IngredientForm(forms.ModelForm):
+  name = 'Ingredient'
+  class Meta:
+    model = Ingredient
+    fields = ('ingredient_name',
       'notes'
     )
 
