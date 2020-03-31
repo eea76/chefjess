@@ -1,16 +1,60 @@
-h1 {
-  color: blue; }
+.index {
+  margin: 0 auto;
+  max-width: 980px; }
+  .index .meals-container {
+    font-family: 'Dosis', sans-serif;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    background: #F4F4F5; }
+    .index .meals-container .meal-container {
+      width: 50%; }
+      .index .meals-container .meal-container a {
+        text-decoration: none; }
+      .index .meals-container .meal-container .meal {
+        margin: 10px;
+        background: #fff;
+        display: flex; }
+        .index .meals-container .meal-container .meal .image-container {
+          padding: 10px;
+          width: 50%; }
+          .index .meals-container .meal-container .meal .image-container .image img {
+            width: 100%;
+            border-radius: 10px; }
+        .index .meals-container .meal-container .meal .meal-info {
+          padding: 10px; }
+          .index .meals-container .meal-container .meal .meal-info .meal-name {
+            color: #283225; }
+          .index .meals-container .meal-container .meal .meal-info .meal-text {
+            color: #B39195; }
 
-.meals-container {
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap; }
-  .meals-container .meal {
-    width: 50%; }
-    .meals-container .meal .image-container {
-      padding: 10px; }
-      .meals-container .meal .image-container .image img {
-        width: 100%;
-        border-radius: 10px; }
+* {
+  padding: 0;
+  margin: 0; }
+
+body .menu {
+  background: #283225; }
+  body .menu .menu-inner {
+    color: #fff;
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 10px 0; }
+    body .menu .menu-inner .menu-text {
+      position: relative; }
+      body .menu .menu-inner .menu-text h1 {
+        font-family: 'Satisfy', cursive;
+        font-size: 2.5em;
+        display: inline-block; }
+      body .menu .menu-inner .menu-text .admin {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0; }
+        body .menu .menu-inner .menu-text .admin a {
+          text-decoration: none;
+          color: #fff;
+          font-family: 'Dosis', sans-serif;
+          padding: 0 5px; }
 
 /*# sourceMappingURL=style.css.map */

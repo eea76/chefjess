@@ -1,23 +1,49 @@
+.index {
+  margin: 0 auto;
+  max-width: 980px;
 
-h1 {
-  color: blue;
-}
+  .meals-container {
+    font-family: 'Dosis', sans-serif;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    background: $light-gray;
 
-.meals-container {
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
+    .meal-container {
+      width: 50%;
 
-  .meal {
-    width: 50%;
+      a {
+        text-decoration: none;
 
-    .image-container {
-      padding: 10px;
+      }
 
-      .image {
-        img {
-          width: 100%;
-          border-radius: 10px;
+      .meal {
+        margin: 10px;
+        background: $background;
+        display: flex;
+
+        .image-container {
+          padding: 10px;
+          width: 50%;
+
+          .image {
+            img {
+              width: 100%;
+              border-radius: 10px;
+            }
+          }
+        }
+
+        .meal-info {
+          padding: 10px;
+
+          .meal-name {
+            color: $dark;
+          }
+
+          .meal-text {
+            color: $brown;
+          }
         }
       }
     }

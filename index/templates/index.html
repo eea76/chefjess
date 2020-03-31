@@ -1,30 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<div class="index">
 
-<h1>Meals</h1>
-<hr>
+  <div class="meals-container">
 
-<div class="meals-container">
+    {% for meal in meals %}
+    <div class="meal-container">
+      <a href="{% url 'meal_detail' meal_type=meal.meal_type id=meal.id %}">
+        <div class="meal">
+          <div class="image-container">
+            <div class="image">
+              <img src="{% static 'img/meal_placeholder.jpg' %}" />
+            </div>
+          </div>
 
 
-  {% for meal in meals %}
-  <div class="meal">
-    <div class="image-container">
-      <div class="image">
-        <img src="{% static 'img/meal_placeholder.jpg' %}" />
+          <div class="meal-info">
+            <h2 class="meal-name">{{meal.meal_name}}</h2>
+            <div class="meal-text">
+              {{ meal.date }} - {{ meal.meal_type }}
+            </div>
+        </div>
       </div>
-    </div>
-    <a href="{% url 'meal_detail' meal_type=meal.meal_type id=meal.id %}">
-      <h2 class="meal-name">{{meal.meal_name}}</h2>
     </a>
-    <h2>{{ meal.date }}</h2>
-    <h3>Meal: {{ meal.meal_type }}</h3>
+    </div>
+
+
+  {% endfor %}
+
   </div>
-
-
-{% endfor %}
-
 </div>
 
 {% endblock %}
