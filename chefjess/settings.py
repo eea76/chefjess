@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+AWS_ACCESS_KEY_ID = config('chefjess_aws_access_key')
+AWS_SECRET_ACCESS_KEY = config('chefjess_secret_access_key')
+AWS_STORAGE_BUCKET_NAME = config('AWS_BUCKET_NAME')
+AWS_S3_REGION_NAME="us-west-2"
+print(AWS_ACCESS_KEY_ID)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -134,5 +142,5 @@ STATIC_ROOT = root('staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (root('static'),)
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
