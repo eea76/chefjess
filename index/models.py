@@ -44,6 +44,7 @@ class Cuisine(models.Model):
 
 class Meal(models.Model):
   meal_name = models.CharField(max_length=200, null=True, blank=True)
+  cover = models.ImageField(upload_to='images/', null=True)
   date = models.DateField(default=timezone.now, null=True)
   meal_type = models.ForeignKey(MealType, null=True, blank=True, on_delete=models.CASCADE)
   cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete=models.CASCADE)

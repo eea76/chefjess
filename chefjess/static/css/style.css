@@ -8,7 +8,8 @@
     flex-wrap: wrap;
     background: #F4F4F5; }
     .index .meals-container .meal-container {
-      width: 33%; }
+      width: 33%;
+      margin-bottom: 20px; }
       .index .meals-container .meal-container a {
         text-decoration: none; }
       .index .meals-container .meal-container .meal {

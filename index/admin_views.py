@@ -8,7 +8,7 @@ from .forms import MealForm, RecipeForm, IngredientForm
 @login_required
 def new_meal(request):
   if request.method == 'POST':
-    form = MealForm(request.POST)
+    form = MealForm(request.POST, request.FILES)
     if form.is_valid():
       meal = form.save(commit=False)
       meal.save()

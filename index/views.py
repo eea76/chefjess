@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 
 def index(request):
-  meals = Meal.objects.all().order_by('-date')
+  meals = Meal.objects.all().order_by('-id')
 
 
   obj = {

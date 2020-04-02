@@ -13,6 +13,7 @@ class MealForm(forms.ModelForm):
   class Meta:
     model = Meal
     fields = ('meal_name',
+      'cover',
       'date',
       'meal_type',
       'cuisine',
