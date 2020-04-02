@@ -1,3 +1,350 @@
-h1 {
-  color: green;
-}
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  z-index: 1;
+  position: fixed;
+  background: #283225;
+  overflow: visible;
+  width: 100%;
+  top: 0;
+  right: 0; }
+  @media (min-width: 769px) {
+    .hamburger {
+      display: none; } }
+
+.hamburger:hover {
+  opacity: 0.7; }
+
+.hamburger.is-active:hover {
+  opacity: 0.7; }
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #fff; }
+
+.hamburger-box {
+  width: 20px;
+  height: 24px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 25px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease; }
+
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block; }
+
+.hamburger-inner::before {
+  top: -10px; }
+
+.hamburger-inner::after {
+  bottom: -10px; }
+
+/*
+   * Emphatic
+   */
+.hamburger--emphatic {
+  overflow: hidden; }
+
+.hamburger--emphatic .hamburger-inner {
+  transition: background-color 0.125s 0.175s ease-in; }
+
+.hamburger--emphatic .hamburger-inner::before {
+  left: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, left 0.125s 0.175s ease-in; }
+
+.hamburger--emphatic .hamburger-inner::after {
+  top: 10px;
+  right: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, right 0.125s 0.175s ease-in; }
+
+.hamburger--emphatic.is-active .hamburger-inner {
+  transition-delay: 0s;
+  transition-timing-function: ease-out;
+  background-color: transparent !important; }
+
+.hamburger--emphatic.is-active .hamburger-inner::before {
+  left: -80px;
+  top: -80px;
+  transform: translate3d(80px, 80px, 0) rotate(45deg);
+  transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+.hamburger--emphatic.is-active .hamburger-inner::after {
+  right: -80px;
+  top: -80px;
+  transform: translate3d(-80px, 80px, 0) rotate(-45deg);
+  transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+.menu {
+  background: #283225; }
+  @media (max-width: 768px) {
+    .menu {
+      position: fixed;
+      width: 100%;
+      top: 0; } }
+  .menu .menu-inner {
+    color: #fff;
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 10px; }
+    .menu .menu-inner .menu-text {
+      position: relative; }
+      @media (max-width: 768px) {
+        .menu .menu-inner .menu-text {
+          text-align: center; } }
+      .menu .menu-inner .menu-text a {
+        color: #fff;
+        transition: 250ms all; }
+        .menu .menu-inner .menu-text a:hover {
+          color: #BEE4D0; }
+      .menu .menu-inner .menu-text h1 {
+        font-family: 'Satisfy', cursive;
+        font-size: 2.5em;
+        display: inline-block; }
+      .menu .menu-inner .menu-text .admin {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0; }
+        .menu .menu-inner .menu-text .admin a {
+          text-decoration: none;
+          color: #fff;
+          font-family: 'Dosis', sans-serif;
+          padding: 0 5px; }
+          @media (max-width: 768px) {
+            .menu .menu-inner .menu-text .admin a {
+              display: none; } }
+    .menu .menu-inner .hamburger {
+      display: none;
+      text-align: right;
+      width: 30px;
+      padding: 20px; }
+      .menu .menu-inner .hamburger img {
+        width: 100%; }
+      @media (max-width: 768px) {
+        .menu .menu-inner .hamburger {
+          display: inline-block; } }
+    .menu .menu-inner .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 3.5em;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 2; }
+      .menu .menu-inner .mobile-menu ul {
+        font-size: 2.5em;
+        text-align: right;
+        padding: 0 20px; }
+        .menu .menu-inner .mobile-menu ul a {
+          text-decoration: none;
+          color: #283225;
+          cursor: pointer; }
+          .menu .menu-inner .mobile-menu ul a li {
+            padding: .4em 0;
+            line-height: 1;
+            display: block;
+            font-family: 'Dosis', sans-serif; }
+      .menu .menu-inner .mobile-menu.show-mobile-menu {
+        display: block; }
+
+.show-mobile-menu {
+  left: 0 !important;
+  transition: 500ms all; }
+
+.index {
+  margin: 80px auto;
+  max-width: 980px; }
+  .index .meals-container {
+    font-family: 'Dosis', sans-serif;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-top: 20px;
+    background: #F4F4F5; }
+    @media (max-width: 768px) {
+      .index .meals-container {
+        grid-template-columns: 100%; } }
+    .index .meals-container .meal-container {
+      margin-bottom: 20px; }
+      .index .meals-container .meal-container a {
+        text-decoration: none;
+        color: #fff;
+        transition: 250ms all; }
+        .index .meals-container .meal-container a:hover {
+          color: #F3B8AD; }
+      .index .meals-container .meal-container .meal {
+        margin: 10px;
+        background: #fff; }
+        .index .meals-container .meal-container .meal .image-container {
+          background: #B39195; }
+          .index .meals-container .meal-container .meal .image-container .image img {
+            width: 100%; }
+        .index .meals-container .meal-container .meal .meal-info {
+          background: #B39195;
+          padding: 5px 0;
+          text-align: center; }
+          .index .meals-container .meal-container .meal .meal-info .meal-name {
+            font-family: 'Satisfy', cursive;
+            font-size: 2em; }
+          .index .meals-container .meal-container .meal .meal-info .meal-text {
+            color: #fff;
+            font-size: 1em; }
+
+.meal-detail-container {
+  margin: 0 auto 80px;
+  max-width: 980px;
+  font-family: 'Dosis', sans-serif;
+  padding: 15px; }
+  @media (max-width: 768px) {
+    .meal-detail-container {
+      margin: 80px auto; } }
+  .meal-detail-container .meal-image {
+    text-align: center; }
+  .meal-detail-container .detail-container {
+    max-width: 500px;
+    margin: 10px auto 20px;
+    padding: 20px;
+    background: #F3B8AD;
+    border-radius: 5px; }
+  .meal-detail-container .meal-info {
+    text-align: center; }
+    .meal-detail-container .meal-info .meal-name {
+      font-family: 'Satisfy', cursive;
+      font-size: 2em; }
+    .meal-detail-container .meal-info .meal-content .meal-meta {
+      display: inline-block;
+      text-transform: capitalize; }
+    .meal-detail-container .meal-info .meal-content .meal-location {
+      font-size: 1.5em;
+      padding: 5px; }
+  .meal-detail-container .details-container .person-container ul {
+    list-style-type: none; }
+    .meal-detail-container .details-container .person-container ul li {
+      padding: 2px 15px 0; }
+  .meal-detail-container .navigation-container {
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center; }
+    .meal-detail-container .navigation-container a {
+      color: #fff;
+      transition: 250ms all; }
+      .meal-detail-container .navigation-container a:hover {
+        color: #F3B8AD; }
+    .meal-detail-container .navigation-container .grayed-out {
+      color: #ddd; }
+    .meal-detail-container .navigation-container a, .meal-detail-container .navigation-container .grayed-out {
+      text-decoration: none;
+      background: #B39195;
+      border-radius: 5px;
+      padding: 10px; }
+      @media (max-width: 768px) {
+        .meal-detail-container .navigation-container a, .meal-detail-container .navigation-container .grayed-out {
+          margin: 0 20px; } }
+
+.footer {
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  background: #283225;
+  color: #BEE4D0;
+  padding: 15px 0;
+  bottom: 0;
+  font-family: 'Dosis', sans-serif; }
+
+.form-container {
+  max-width: 600px;
+  margin: 30px auto 80px;
+  background: #F3B8AD;
+  padding: 20px; }
+  @media (max-width: 768px) {
+    .form-container {
+      margin: 78px auto 80px; } }
+  .form-container h2 {
+    font-size: 2em;
+    font-family: 'Satisfy', cursive;
+    text-align: center; }
+  .form-container form label {
+    font-size: 1.5em;
+    font-family: 'Dosis', sans-serif;
+    display: block;
+    padding: 20px 0; }
+    .form-container form label[for="id_make_again"] {
+      display: inline-block; }
+  .form-container form #id_make_again {
+    -ms-transform: scale(1.5);
+    /* IE */
+    -moz-transform: scale(1.5);
+    /* FF */
+    -webkit-transform: scale(1.5);
+    /* Safari and Chrome */
+    -o-transform: scale(1.5);
+    /* Opera */
+    transform: scale(1.5);
+    margin: 10px; }
+    @media (max-width: 768px) {
+      .form-container form #id_make_again {
+        width: 10%; } }
+  .form-container form input {
+    padding: 10px;
+    font-size: 1em; }
+    @media (max-width: 768px) {
+      .form-container form input {
+        padding: 10px 0;
+        width: 100%; } }
+  .form-container form select {
+    padding: 10px;
+    font-size: 1em;
+    width: 250px; }
+    @media (max-width: 768px) {
+      .form-container form select {
+        width: 100%; } }
+  .form-container form textarea {
+    width: 100%;
+    font-size: 2em;
+    font-family: 'Dosis', sans-serif; }
+  .form-container form button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 150px;
+    font-size: 1em;
+    background: white;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 250ms all; }
+    .form-container form button[type="submit"]:hover {
+      background: #F4DDD9; }
+
+* {
+  padding: 0;
+  margin: 0; }
+
+body {
+  background: #BEE4D0; }
+
+/*# sourceMappingURL=style.css.map */

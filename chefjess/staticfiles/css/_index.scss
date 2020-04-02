@@ -1,0 +1,63 @@
+.index {
+  margin: 80px auto;
+  max-width: 980px;
+
+  .meals-container {
+    font-family: 'Dosis', sans-serif;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-top: 20px;
+    background: $light-gray;
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 100%;
+    }
+
+
+    .meal-container {
+      margin-bottom: 20px;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+
+        transition: 250ms all;
+
+        &:hover {
+          color: $pink;
+        }
+      }
+
+      .meal {
+        margin: 10px;
+        background: $background;
+
+        .image-container {
+          background: $brown;
+
+          .image {
+            img {
+              width: 100%;
+            }
+          }
+        }
+
+        .meal-info {
+          background: $brown;
+          padding: 5px 0;
+          text-align: center;
+
+          .meal-name {
+            font-family: 'Satisfy', cursive;
+            font-size: 2em;
+          }
+
+          .meal-text {
+            color: #fff;
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}
