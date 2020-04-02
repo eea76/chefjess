@@ -1,8 +1,20 @@
-.meal-container {
+.meal-detail-container {
   margin: 0 auto 80px;
   max-width: 980px;
   font-family: 'Dosis', sans-serif;
   padding: 15px;
+
+  .meal-image {
+    text-align: center;
+  }
+
+  .detail-container {
+    max-width: 500px;
+    margin: 10px auto 20px;
+    padding: 20px;
+    background: $pink;
+    border-radius: 5px;
+  }
 
   .meal-info {
     text-align: center;
@@ -27,20 +39,9 @@
     }
   }
 
-  .meal-notes {
-    max-width: 500px;
-    margin: 0 auto;
-    background: $pink;
-    padding: 20px;
-    border-radius: 5px;
-  }
 
   .details-container {
-    max-width: 500px;
-    margin: 30px auto;
-    padding: 20px;
-    background: $pink;
-    border-radius: 5px;
+
 
     .person-container {
 
@@ -60,16 +61,23 @@
     text-align: center;
 
     a {
-      text-decoration: none;
       color: #fff;
-      background: $dark;
-      border-radius: 5px;
-      padding: 10px;
       transition: 250ms all;
 
       &:hover {
-        color: $light;
+        color: $pink;
       }
+    }
+
+    .grayed-out {
+      color: #ddd;
+    }
+
+    a, .grayed-out {
+      text-decoration: none;
+      background: $brown;
+      border-radius: 5px;
+      padding: 10px;
     }
   }
 }

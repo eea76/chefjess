@@ -20,7 +20,7 @@ class MealForm(forms.ModelForm):
       'person',
       'location',
       'notes',
-      'recipe',
+      # 'recipe',
       'make_again'
     )
 

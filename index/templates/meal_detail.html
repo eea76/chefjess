@@ -2,41 +2,43 @@
 
 {% block content %}
 
-<div class="meal-container">
+<div class="meal-detail-container">
 
-  <div class="meal-info">
-    <div class="meal-image">
-      <img src= "{{ meal.meal_image.url}}" />
-    </div>
+  <div class="meal-image">
+    <img src= "{{ meal.meal_image.url}}" />
+  </div>
 
-    <div class="meal-name">
-      {{ meal.meal_name }}
-    </div>
-
-    <div class="meal-content">
-      <div class="meal-meta meal-date">
-        {{ meal.date }} •
+  <div class="meal-info detail-container">
+    <div class="meal-about">
+      <div class="meal-name">
+        {{ meal.meal_name }}
       </div>
 
-      <div class="meal-meta meal-type">
-        {{ meal.meal_type }} •
-      </div>
+      <div class="meal-content">
+        <div class="meal-meta meal-date">
+          {{ meal.date }} •
+        </div>
 
-      <div class="meal-meta cuisine">
-        {{ meal.cuisine }}
-      </div>
+        <div class="meal-meta meal-type">
+          {{ meal.meal_type }} •
+        </div>
 
-      <div class="meal-location">
-        {{ meal.location }}
+        <div class="meal-meta cuisine">
+          {{ meal.cuisine }}
+        </div>
+
+        <div class="meal-location">
+          {{ meal.location }}
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="meal-notes">
+  <div class="meal-notes detail-container">
     {{ meal.notes }}
   </div>
 
-  <div class="details-container">
+  <div class="details-container detail-container">
     <!--<div class="recipe">
       {{ meal.recipe }}
     </div>-->
@@ -68,9 +70,20 @@
   </div>
 
   <div class="navigation-container">
+    {% if prev_meal %}
+    <a href="{% url 'meal_detail' prev_meal.meal_type prev_meal.id %}"><<< Prev Meal</a>
+    {% else %}
+    <span class="grayed-out"><<< Previous</span>
+    {% endif %}
+
     <a href="/">Back to Home</a>
-    <a href="/"><<< Prev Meal</a>
-    <a href="/">Next Meal >>></a>
+
+    {% if next_meal %}
+    <a href="{% url 'meal_detail' next_meal.meal_type next_meal.id %}">Next Meal >>></a>
+        {% else %}
+    <span class="grayed-out">Next >>></span>
+
+    {% endif %}
   </div>
 </div>
 {% endblock %}

@@ -1,19 +1,31 @@
 .index {
-  margin: 0 auto 80px;
+  margin: 80px auto;
   max-width: 980px;
 
   .meals-container {
     font-family: 'Dosis', sans-serif;
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    margin-top: 20px;
     background: $light-gray;
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 100%;
+    }
+
 
     .meal-container {
       margin-bottom: 20px;
 
       a {
         text-decoration: none;
+        color: #fff;
 
+        transition: 250ms all;
+
+        &:hover {
+          color: $pink;
+        }
       }
 
       .meal {
@@ -21,26 +33,28 @@
         background: $background;
 
         .image-container {
-          padding: 10px;
+          background: $brown;
 
           .image {
             img {
               width: 100%;
-              border-radius: 10px;
             }
           }
         }
 
         .meal-info {
-          padding: 10px;
+          background: $brown;
+          padding: 5px 0;
+          text-align: center;
 
           .meal-name {
-            color: $dark;
+            font-family: 'Satisfy', cursive;
+            font-size: 2em;
           }
 
           .meal-text {
-            color: $brown;
-            font-size: 12px;
+            color: #fff;
+            font-size: 1em;
           }
         }
       }
