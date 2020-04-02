@@ -10,7 +10,7 @@
     background: $light-gray;
 
     .meal-container {
-      width: 50%;
+      width: 33%;
 
       a {
         text-decoration: none;
@@ -20,11 +20,9 @@
       .meal {
         margin: 10px;
         background: $background;
-        display: flex;
 
         .image-container {
           padding: 10px;
-          width: 50%;
 
           .image {
             img {
@@ -43,6 +41,7 @@
 
           .meal-text {
             color: $brown;
+            font-size: 12px;
           }
         }
       }

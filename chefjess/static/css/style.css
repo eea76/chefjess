@@ -8,16 +8,14 @@
     flex-wrap: wrap;
     background: #F4F4F5; }
     .index .meals-container .meal-container {
-      width: 50%; }
+      width: 33%; }
       .index .meals-container .meal-container a {
         text-decoration: none; }
       .index .meals-container .meal-container .meal {
         margin: 10px;
-        background: #fff;
-        display: flex; }
+        background: #fff; }
         .index .meals-container .meal-container .meal .image-container {
-          padding: 10px;
-          width: 50%; }
+          padding: 10px; }
           .index .meals-container .meal-container .meal .image-container .image img {
             width: 100%;
             border-radius: 10px; }
@@ -26,7 +24,8 @@
           .index .meals-container .meal-container .meal .meal-info .meal-name {
             color: #283225; }
           .index .meals-container .meal-container .meal .meal-info .meal-text {
-            color: #B39195; }
+            color: #B39195;
+            font-size: 12px; }
 
 * {
   padding: 0;
