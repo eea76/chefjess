@@ -32,6 +32,20 @@
   </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+
+      //random alert
+      var errorMessage = "Mahal kita"
+      var randomPopUp = Math.floor(Math.random() * 25) + 1;
+
+      if (randomPopUp == 1) {
+        alert(errorMessage);
+      }
+    })
+
+</script>
+
 {% endblock %}
 
 
