@@ -1,0 +1,75 @@
+.meal-container {
+  margin: 0 auto 80px;
+  max-width: 980px;
+  font-family: 'Dosis', sans-serif;
+  padding: 15px;
+
+  .meal-info {
+    text-align: center;
+
+    .meal-name {
+      font-family: 'Satisfy', cursive;
+      font-size: 2em;
+    }
+
+    .meal-content {
+
+
+      .meal-meta {
+        display: inline-block;
+        text-transform: capitalize;
+      }
+
+      .meal-location {
+        font-size: 1.5em;
+        padding: 5px;
+      }
+    }
+  }
+
+  .meal-notes {
+    max-width: 500px;
+    margin: 0 auto;
+    background: $pink;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .details-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background: $pink;
+    border-radius: 5px;
+
+    .person-container {
+
+      ul {
+        list-style-type: none;
+
+        li {
+          padding: 2px 15px 0;
+        }
+      }
+    }
+  }
+
+  .navigation-container {
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      background: $dark;
+      border-radius: 5px;
+      padding: 10px;
+      transition: 250ms all;
+
+      &:hover {
+        color: $light;
+      }
+    }
+  }
+}

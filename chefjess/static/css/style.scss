@@ -1,5 +1,8 @@
 @import "variables";
+@import "menu";
 @import "index";
+@import "meal_detail";
+@import "footer";
 
 // global styles
 
@@ -9,39 +12,5 @@
 }
 
 body {
-  .menu {
-    background: $dark;
-
-    .menu-inner {
-      color: #fff;
-      margin: 0 auto;
-      max-width: 980px;
-      padding: 10px 0;
-
-      .menu-text {
-        position: relative;
-
-        h1 {
-          font-family: 'Satisfy', cursive;
-          font-size: 2.5em;
-          display: inline-block;
-        }
-
-        .admin {
-          display: inline-block;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 0;
-
-          a {
-            text-decoration: none;
-            color: #fff;
-            font-family: 'Dosis', sans-serif;
-            padding: 0 5px;
-          }
-        }
-      }
-    }
-  }
+  background: $light;
 }

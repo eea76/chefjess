@@ -1,14 +1,42 @@
+.menu {
+  background: #283225; }
+  .menu .menu-inner {
+    color: #fff;
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 10px; }
+    .menu .menu-inner .menu-text {
+      position: relative; }
+      .menu .menu-inner .menu-text a {
+        color: #fff;
+        transition: 250ms all; }
+        .menu .menu-inner .menu-text a:hover {
+          color: #BEE4D075; }
+      .menu .menu-inner .menu-text h1 {
+        font-family: 'Satisfy', cursive;
+        font-size: 2.5em;
+        display: inline-block; }
+      .menu .menu-inner .menu-text .admin {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0; }
+        .menu .menu-inner .menu-text .admin a {
+          text-decoration: none;
+          color: #fff;
+          font-family: 'Dosis', sans-serif;
+          padding: 0 5px; }
+
 .index {
-  margin: 0 auto;
+  margin: 0 auto 80px;
   max-width: 980px; }
   .index .meals-container {
     font-family: 'Dosis', sans-serif;
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
     background: #F4F4F5; }
     .index .meals-container .meal-container {
-      width: 33%;
       margin-bottom: 20px; }
       .index .meals-container .meal-container a {
         text-decoration: none; }
@@ -28,33 +56,67 @@
             color: #B39195;
             font-size: 12px; }
 
+.meal-container {
+  margin: 0 auto 80px;
+  max-width: 980px;
+  font-family: 'Dosis', sans-serif;
+  padding: 15px; }
+  .meal-container .meal-info {
+    text-align: center; }
+    .meal-container .meal-info .meal-name {
+      font-family: 'Satisfy', cursive;
+      font-size: 2em; }
+    .meal-container .meal-info .meal-content .meal-meta {
+      display: inline-block;
+      text-transform: capitalize; }
+    .meal-container .meal-info .meal-content .meal-location {
+      font-size: 1.5em;
+      padding: 5px; }
+  .meal-container .meal-notes {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #F3B8AD;
+    padding: 20px;
+    border-radius: 5px; }
+  .meal-container .details-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #F3B8AD;
+    border-radius: 5px; }
+    .meal-container .details-container .person-container ul {
+      list-style-type: none; }
+      .meal-container .details-container .person-container ul li {
+        padding: 2px 15px 0; }
+  .meal-container .navigation-container {
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center; }
+    .meal-container .navigation-container a {
+      text-decoration: none;
+      color: #fff;
+      background: #283225;
+      border-radius: 5px;
+      padding: 10px;
+      transition: 250ms all; }
+      .meal-container .navigation-container a:hover {
+        color: #BEE4D075; }
+
+.footer {
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  background: #283225;
+  color: #BEE4D075;
+  padding: 15px 0;
+  bottom: 0;
+  font-family: 'Dosis', sans-serif; }
+
 * {
   padding: 0;
   margin: 0; }
 
-body .menu {
-  background: #283225; }
-  body .menu .menu-inner {
-    color: #fff;
-    margin: 0 auto;
-    max-width: 980px;
-    padding: 10px 0; }
-    body .menu .menu-inner .menu-text {
-      position: relative; }
-      body .menu .menu-inner .menu-text h1 {
-        font-family: 'Satisfy', cursive;
-        font-size: 2.5em;
-        display: inline-block; }
-      body .menu .menu-inner .menu-text .admin {
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0; }
-        body .menu .menu-inner .menu-text .admin a {
-          text-decoration: none;
-          color: #fff;
-          font-family: 'Dosis', sans-serif;
-          padding: 0 5px; }
+body {
+  background: #BEE4D075; }
 
 /*# sourceMappingURL=style.css.map */

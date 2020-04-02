@@ -20,7 +20,7 @@
     <div class="menu">
       <div class="menu-inner">
         <div class="menu-text">
-          <h1>Chef Jess</h1>
+          <a href="/"><h1>Chef Jess</h1></a>
           {% if user.is_authenticated %}
           <div class="admin">
             <a href="{% url 'new_meal' %}">Add New Meal</a>
@@ -32,7 +32,13 @@
         </div>
       </div>
     </div>
-    {% block content %}
+
+    {% block content %}
     {% endblock %}
-  </body>
+
+    <div class="footer">
+      Just a cool footer
+    </div>
+
+  </body>
 </html>

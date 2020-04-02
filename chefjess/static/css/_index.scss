@@ -1,16 +1,14 @@
 .index {
-  margin: 0 auto;
+  margin: 0 auto 80px;
   max-width: 980px;
 
   .meals-container {
     font-family: 'Dosis', sans-serif;
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
     background: $light-gray;
 
     .meal-container {
-      width: 33%;
       margin-bottom: 20px;
 
       a {

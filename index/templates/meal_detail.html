@@ -2,29 +2,33 @@
 
 {% block content %}
 
-
-
 <div class="meal-container">
 
-  <div class="meal-name">
-    {{meal.meal_name}}
-  </div>
-
   <div class="meal-info">
-    <div class="meal-date">
-      {{ meal.date }}
+    <div class="meal-image">
+      <img src= "{{ meal.meal_image.url}}" />
     </div>
 
-    <div class="meal-type">
-      {{ meal.meal_type }}
+    <div class="meal-name">
+      {{ meal.meal_name }}
     </div>
 
-    <div class="cuisine">
-      {{ meal.cuisine }}
-    </div>
+    <div class="meal-content">
+      <div class="meal-meta meal-date">
+        {{ meal.date }} •
+      </div>
 
-    <div class="meal-location">
-      {{ meal.location }}
+      <div class="meal-meta meal-type">
+        {{ meal.meal_type }} •
+      </div>
+
+      <div class="meal-meta cuisine">
+        {{ meal.cuisine }}
+      </div>
+
+      <div class="meal-location">
+        {{ meal.location }}
+      </div>
     </div>
   </div>
 
@@ -32,41 +36,41 @@
     {{ meal.notes }}
   </div>
 
-  <div class="recipe-container">
-    <div class="recipe">
+  <div class="details-container">
+    <!--<div class="recipe">
       {{ meal.recipe }}
-    </div>
+    </div>-->
 
-    {% if meal.recipe.ingredient %}
+    <!--{% if meal.recipe.ingredient %}
     <div class="ingredients">
       <ul>Ingredients
         {% for ingredient in meal.recipe.ingredient.all %}
-        <li>{{ingredient.ingredient_name}}{% if ingredient.notes %} ({{ingredient.notes}})
-  {%endif%}</li>
-  {%endfor%}
-</ul>
+        <li>{{ingredient.ingredient_name}}
+          {% if ingredient.notes %} ({{ingredient.notes}}) {%endif%}
+        </li>
+        {%endfor%}
+      </ul>
 
-      </div>
+    </div>
 
-      {% endif %}
+    {% endif %} -->
 
+    {% if meal.person.all %}
+    <div class="person-container">
+      People I ate this meal with:
+      <ul>
+      {% for person in meal.person.all %}
+        <li>{{person}}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
 
-
-
-
-
-
-<p>{% for person in meal.person.all %}</p>
-  {{person}}
-  {% endfor %}
-
-
-<a href="/">Back to Home</a>
-
+  <div class="navigation-container">
+    <a href="/">Back to Home</a>
+    <a href="/"><<< Prev Meal</a>
+    <a href="/">Next Meal >>></a>
+  </div>
 </div>
-
-
-
-
-
 {% endblock %}
