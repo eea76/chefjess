@@ -1,3 +1,8 @@
+import uuid
+
+import os
+
+from functools import partial
 from django.db import models
 from django.utils import timezone
 
@@ -45,10 +50,19 @@ class Cuisine(models.Model):
     return self.cuisine
 
 
+def _update_filename(instance, filename, path):
+    path = path
+    filename = str(uuid.uuid4())
+    return os.path.join(path, filename)
+
+def upload_to(path):
+    return partial(_update_filename, path=path)
+
+
 class Meal(models.Model):
   meal_name = models.CharField(max_length=200, null=True, blank=True)
   # cover = models.ImageField(upload_to='images/', null=True)
-  meal_image = ResizedImageField(size=[300, 300], crop=['middle', 'center'], upload_to='images/', null=True)
+  meal_image = ResizedImageField(size=[300, 300], crop=['middle', 'center'], upload_to=upload_to("images/"), null=True)
   date = models.DateField(default=timezone.now, null=True)
   meal_type = models.ForeignKey(MealType, null=True, blank=True, on_delete=models.CASCADE)
   cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete=models.CASCADE)
@@ -61,5 +75,8 @@ class Meal(models.Model):
 
   def __str__(self):
     return self.meal_name
+
+
+
 
 
