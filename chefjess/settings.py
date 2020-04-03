@@ -144,7 +144,7 @@ AWS_S3_REGION_NAME="us-west-2"
 
 # is this shit necessary? see if it actually is
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = root('staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (root('static'),)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
