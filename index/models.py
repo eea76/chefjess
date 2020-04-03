@@ -50,6 +50,14 @@ class Cuisine(models.Model):
     return self.cuisine
 
 
+'''
+the following two functions do some magic to change the uploaded file in the
+Meal class to a uuid instead of the generic 'image' filename that iphones use.
+There has to be a better way to do this (besides putting each image in its
+own uuid-named folder within the bucket. That's insanity. Also this doesn't
+do anything about file extensions. I'll work on that.
+This might help: https://stackoverflow.com/questions/2680391/)
+'''
 def _update_filename(instance, filename, path):
     path = path
     filename = str(uuid.uuid4())
