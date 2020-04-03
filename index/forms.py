@@ -21,7 +21,8 @@ class MealForm(forms.ModelForm):
       'location',
       'notes',
       # 'recipe',
-      'make_again'
+      'make_again',
+      'is_favorite',
     )
 
 

@@ -1,0 +1,17 @@
+@import "variables";
+@import "menu";
+@import "index";
+@import "meal_detail";
+@import "footer";
+@import "form";
+
+// global styles
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: $light;
+}

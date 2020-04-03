@@ -21,12 +21,14 @@
       display: block;
       padding: 20px 0;
 
-      &[for="id_make_again"] {
+      &[for="id_make_again"],
+      &[for="id_is_favorite"] {
         display: inline-block;
       }
     }
 
-    #id_make_again {
+    #id_make_again,
+    #id_is_favorite {
       -ms-transform: scale(1.5); /* IE */
       -moz-transform: scale(1.5); /* FF */
       -webkit-transform: scale(1.5); /* Safari and Chrome */

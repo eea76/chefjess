@@ -38,6 +38,7 @@
     {{ meal.notes }}
   </div>
 
+  {% if meal.person.all %}
   <div class="details-container detail-container">
     <!--<div class="recipe">
       {{ meal.recipe }}
@@ -57,7 +58,7 @@
 
     {% endif %} -->
 
-    {% if meal.person.all %}
+
     <div class="person-container">
       People I ate this meal with:
       <ul>
@@ -66,8 +67,9 @@
       {% endfor %}
       </ul>
     </div>
-    {% endif %}
+
   </div>
+  {% endif %}
 
   <div class="navigation-container">
     {% if prev_meal %}

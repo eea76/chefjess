@@ -57,7 +57,7 @@ class Meal(models.Model):
   notes = models.TextField(null=True, blank=True)
   recipe = models.ForeignKey(Recipe, null=True, blank=True, on_delete=models.CASCADE)
   make_again = models.BooleanField(default=True)
-  is_favorite = models.BooleanField(default=False, null=True)
+  is_favorite = models.BooleanField(default=False)
 
   def __str__(self):
     return self.meal_name
