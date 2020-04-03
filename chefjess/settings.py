@@ -140,6 +140,7 @@ AWS_ACCESS_KEY_ID = config('chefjess_aws_access_key')
 AWS_SECRET_ACCESS_KEY = config('chefjess_secret_access_key')
 AWS_STORAGE_BUCKET_NAME = config('AWS_BUCKET_NAME')
 AWS_S3_REGION_NAME="us-west-2"
+AWS_S3_FILE_OVERWRITE = False
 
 
 # is this shit necessary? see if it actually is
