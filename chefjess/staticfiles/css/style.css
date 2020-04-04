@@ -177,7 +177,7 @@
   transition: 500ms all; }
 
 .index {
-  margin: 80px auto;
+  margin: 40px auto;
   max-width: 980px; }
   .index .meals-container {
     font-family: 'Dosis', sans-serif;
@@ -215,7 +215,7 @@
             font-size: 1em; }
 
 .meal-detail-container {
-  margin: 0 auto 80px;
+  margin: 0 auto;
   max-width: 980px;
   font-family: 'Dosis', sans-serif;
   padding: 15px; }
@@ -268,17 +268,15 @@
 
 .footer {
   width: 100%;
-  position: fixed;
   text-align: center;
   background: #283225;
   color: #BEE4D0;
   padding: 15px 0;
-  bottom: 0;
   font-family: 'Dosis', sans-serif; }
 
 .form-container {
   max-width: 600px;
-  margin: 30px auto 80px;
+  margin: 30px auto;
   background: #F3B8AD;
   padding: 20px; }
   @media (max-width: 768px) {
