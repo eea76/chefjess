@@ -61,6 +61,15 @@ This might help: https://stackoverflow.com/questions/2680391/)
 def _update_filename(instance, filename, path):
     path = path
     filename = str(uuid.uuid4())
+    print("-------")
+    print("-------")
+    print("-------")
+    print("-------")
+    print(f"this image's file name is {filename}")
+    print("-------")
+    print("-------")
+    print("-------")
+
     return os.path.join(path, filename)
 
 def upload_to(path):
