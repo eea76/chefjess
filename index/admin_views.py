@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from .forms import MealForm, RecipeForm, IngredientForm
+from .forms import MealForm, RecipeForm, IngredientForm, PersonForm
 
 
 
@@ -17,7 +17,29 @@ def new_meal(request):
   else:
     form = MealForm()
 
-  return render(request, 'form.html', {'form': form})
+  obj = {
+    'form': form
+  }
+
+  return render(request, 'form.html', obj)
+
+
+@login_required
+def new_person(request):
+  if request.method == 'POST':
+    form = PersonForm(request.POST)
+    if form.is_valid():
+      person = form.save(commit=False)
+      person.save()
+      return redirect('new_meal')
+  else:
+    form = PersonForm()
+
+  obj = {
+    'form': form
+  }
+
+  return render(request, 'form.html', obj)
 
 
 @login_required
@@ -32,7 +54,11 @@ def new_recipe(request):
   else:
     form = RecipeForm()
 
-  return render(request, 'form.html', {'form': form})
+  obj = {
+    'form': form
+  }
+
+  return render(request, 'form.html', obj)
 
 
 @login_required
@@ -46,4 +72,8 @@ def new_ingredient(request):
   else:
     form = IngredientForm()
 
-  return render(request, 'form.html', {'form': form})
+  obj = {
+    'form': form
+  }
+
+  return render(request, 'form.html', obj)

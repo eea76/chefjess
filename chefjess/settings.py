@@ -135,6 +135,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = 'index'
+
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 AWS_ACCESS_KEY_ID = config('chefjess_aws_access_key')
 AWS_SECRET_ACCESS_KEY = config('chefjess_secret_access_key')
