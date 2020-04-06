@@ -35,7 +35,7 @@
   </div>
 
   <div class="meal-notes detail-container">
-    {{ meal.notes }}
+    {{ meal.notes|linebreaks }}
   </div>
 
   {% if meal.person.all %}
