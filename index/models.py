@@ -6,6 +6,8 @@ from functools import partial
 from django.db import models
 from django.utils import timezone
 
+from django.contrib.auth.models import User
+
 from django_resized import ResizedImageField
 # https://github.com/un1t/django-resized
 
