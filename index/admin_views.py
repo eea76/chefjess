@@ -1,11 +1,17 @@
 import sendgrid
 from sendgrid.helpers.mail import *
+from decouple import config
+import json
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from decouple import config
+from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
+from django.http import HttpResponse
 
 from .forms import MealForm, RecipeForm, IngredientForm, PersonForm
-from .models import User
+from .models import *
+
 
 @login_required
 def new_meal(request):
@@ -85,6 +91,55 @@ def new_ingredient(request):
     }
 
     return render(request, 'form.html', obj)
+
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+
+@csrf_exempt
+def detect_browser(request):
+    print(request.user.is_authenticated)
+
+    try:
+        if request.user.is_authenticated == False:
+
+            data = json.loads(request.body)
+            browser = data['browser']
+            operating_system = data['os']
+
+            b = Browser.objects.get_or_create(name=browser)
+            o = OperatingSystem.objects.get_or_create(name=operating_system)
+
+            p = PageLoad()
+            p.page = data['url']
+
+            p.meal = data['mealName'].strip()
+            if len(p.meal) < 1:
+                p.meal = 'Home Page'
+
+            p.browser = b[0]
+            p.operating_system = o[0]
+            p.ip_address = get_client_ip(request)
+            p.time_stamp = timezone.now()
+
+            p.save()
+
+
+    except Exception as e:
+        print('-------')
+        print("unable to do this for the following reason")
+        print(e)
+        print()
+
+
+    return HttpResponse("Success")
 
 
 # sendgrid

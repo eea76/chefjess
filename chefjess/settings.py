@@ -16,6 +16,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
+HTTP_X_FORWARDED_FOR = -1
 
 
 INSTALLED_APPS = [

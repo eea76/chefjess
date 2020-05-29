@@ -12,44 +12,70 @@ from django_resized import ResizedImageField
 # https://github.com/un1t/django-resized
 
 
-class Ingredient(models.Model):
-  ingredient_name = models.CharField(max_length=200)
-  notes = models.TextField(max_length=200, null=True, blank=True)
+class Browser(models.Model):
+    name = models.CharField(max_length=1000, blank=True, null=True)
 
-  def __str__(self):
-    return self.ingredient_name
+    def __str__(self):
+        return self.name
+
+
+class OperatingSystem(models.Model):
+    name = models.CharField(max_length=1000, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class PageLoad(models.Model):
+    page = models.CharField(max_length=1000, null=True, blank=True)
+    time_stamp = models.DateTimeField(blank=True, null=True)
+    ip_address = models.CharField(max_length=100, blank=True, null=True)
+    browser = models.ForeignKey(Browser, blank=True, null=True, on_delete=models.CASCADE)
+    operating_system = models.ForeignKey(OperatingSystem, blank=True, null=True, on_delete=models.CASCADE)
+    meal = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.page
+
+
+class Ingredient(models.Model):
+    ingredient_name = models.CharField(max_length=200)
+    notes = models.TextField(max_length=200, null=True, blank=True)
+
+    def __str__(self):
+        return self.ingredient_name
 
 
 class Recipe(models.Model):
-  recipe_name = models.CharField(max_length=200)
-  ingredient = models.ManyToManyField(Ingredient, null=True, blank=True)
-  notes = models.TextField(max_length=200, null=True, blank=True)
+    recipe_name = models.CharField(max_length=200)
+    ingredient = models.ManyToManyField(Ingredient, null=True, blank=True)
+    notes = models.TextField(max_length=200, null=True, blank=True)
 
-  def __str__(self):
-    return self.recipe_name
+    def __str__(self):
+        return self.recipe_name
 
 
 class Person(models.Model):
-  name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
 
-  def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
 
 class MealType(models.Model):
-  # lunch, dinner, breakfast, snack, dessert, misc
-  meal_type = models.CharField(max_length=200)
+    # lunch, dinner, breakfast, snack, dessert, misc
+    meal_type = models.CharField(max_length=200)
 
-  def __str__(self):
-    return self.meal_type
+    def __str__(self):
+        return self.meal_type
 
 
 class Cuisine(models.Model):
-  # beef, chicken, seafood, vegetarian, etc
-  cuisine = models.CharField(max_length=200)
+    # beef, chicken, seafood, vegetarian, etc
+    cuisine = models.CharField(max_length=200)
 
-  def __str__(self):
-    return self.cuisine
+    def __str__(self):
+        return self.cuisine
 
 
 '''
@@ -79,21 +105,21 @@ def upload_to(path):
 
 
 class Meal(models.Model):
-  meal_name = models.CharField(max_length=200, null=True, blank=True)
-  # cover = models.ImageField(upload_to='images/', null=True)
-  meal_image = ResizedImageField(size=[300, 300], crop=['middle', 'center'], upload_to=upload_to("images/"), null=True)
-  date = models.DateField(default=timezone.now, null=True)
-  meal_type = models.ForeignKey(MealType, null=True, blank=True, on_delete=models.CASCADE)
-  cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete=models.CASCADE)
-  person = models.ManyToManyField(Person, null=True, blank=True)
-  location = models.CharField(max_length=200, null=True, blank=True)
-  notes = models.TextField(null=True, blank=True)
-  recipe = models.ForeignKey(Recipe, null=True, blank=True, on_delete=models.CASCADE)
-  make_again = models.BooleanField(default=True)
-  is_favorite = models.BooleanField(default=False)
+    meal_name = models.CharField(max_length=200, null=True, blank=True)
+    # cover = models.ImageField(upload_to='images/', null=True)
+    meal_image = ResizedImageField(size=[300, 300], crop=['middle', 'center'], upload_to=upload_to("images/"), null=True)
+    date = models.DateField(default=timezone.now, null=True)
+    meal_type = models.ForeignKey(MealType, null=True, blank=True, on_delete=models.CASCADE)
+    cuisine = models.ForeignKey(Cuisine, null=True, blank=True, on_delete=models.CASCADE)
+    person = models.ManyToManyField(Person, null=True, blank=True)
+    location = models.CharField(max_length=200, null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)
+    recipe = models.ForeignKey(Recipe, null=True, blank=True, on_delete=models.CASCADE)
+    make_again = models.BooleanField(default=True)
+    is_favorite = models.BooleanField(default=False)
 
-  def __str__(self):
-    return self.meal_name
+    def __str__(self):
+        return self.meal_name
 
 
 

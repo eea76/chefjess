@@ -11,6 +11,7 @@ urlpatterns = [
 
 
   # admin urls
+  path('detect_browser/', admin_views.detect_browser, name='detect_browser'),
   path('meal/new/', admin_views.new_meal, name="new_meal"),
   path('person/new/', admin_views.new_person, name="new_person"),
   path('recipe/new/', admin_views.new_recipe, name="new_recipe"),
