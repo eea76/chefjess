@@ -14,8 +14,6 @@ admin.site.register(Cuisine)
 admin.site.register(Meal)
 admin.site.register(Ingredient)
 admin.site.register(Recipe)
-admin.site.register(Browser)
-admin.site.register(OperatingSystem)
 admin.site.register(PageLoad, PageLoadAdmin)
 
 
