@@ -61,7 +61,11 @@
   </div>
   {% endif %}
 
+  {% if user.is_authenticated %}
+  <div style="font-size:10px;" class="navigation-container">
+  {% else %}
   <div class="navigation-container">
+  {% endif %}
     {% if user.is_authenticated %}
     <a class = "button" href="{% url 'meal_edit' id=meal.id %}">Edit this meal</a>
     {% endif %}
