@@ -20,7 +20,7 @@
             <!-- class is meal-names to avoid conflicts with meal_detail.html meal-name class -->
             <h2 class="meal-names">{{meal.meal_name}}</h2>
             <div class="meal-text">
-              {{ meal.date }} - {{ meal.meal_type }}
+              {{ meal.date }} {% if meal.meal_type %}- {{ meal.meal_type }}{% endif %}
             </div>
         </div>
       </div>

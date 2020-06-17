@@ -13,7 +13,7 @@
   margin: 0;
   z-index: 1;
   position: fixed;
-  background: #283225;
+  background: #000;
   overflow: visible;
   width: 100%;
   top: 0;
@@ -100,7 +100,7 @@
   transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 .menu {
-  background: #283225; }
+  background: #000; }
   @media (max-width: 768px) {
     .menu {
       position: fixed;
@@ -120,7 +120,7 @@
         color: #fff;
         transition: 250ms all; }
         .menu .menu-inner .menu-text a:hover {
-          color: #BEE4D0; }
+          color: #fff; }
       .menu .menu-inner .menu-text h1 {
         font-family: 'Satisfy', cursive;
         font-size: 2.5em;
@@ -162,7 +162,7 @@
         padding: 0 20px; }
         .menu .menu-inner .mobile-menu ul a {
           text-decoration: none;
-          color: #283225;
+          color: #000;
           cursor: pointer; }
           .menu .menu-inner .mobile-menu ul a li {
             padding: .4em 0;
@@ -180,7 +180,7 @@
   margin: 40px auto;
   max-width: 980px; }
   .index .meals-container {
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Source Code Pro', sans-serif;
     display: grid;
     grid-template-columns: 33% 33% 33%;
     margin-top: 20px;
@@ -269,8 +269,8 @@
 .footer {
   width: 100%;
   text-align: center;
-  background: #283225;
-  color: #BEE4D0;
+  background: #000;
+  color: #fff;
   padding: 15px 0;
   font-family: 'Dosis', sans-serif; }
 
@@ -375,6 +375,6 @@
   margin: 0; }
 
 body {
-  background: #BEE4D0; }
+  background: #fff; }
 
 /*# sourceMappingURL=style.css.map */

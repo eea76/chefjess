@@ -16,16 +16,22 @@
 
       <div class="meal-content">
         <div class="meal-meta meal-date">
-          {{ meal.date }} •
+          {{ meal.date }}
         </div>
 
+        {% if meal.meal_type %}
         <div class="meal-meta meal-type">
-          {{ meal.meal_type }} •
+          • {{ meal.meal_type }} •
         </div>
 
+        {% endif %}
+
+        {% if meal.cuisine %}
         <div class="meal-meta cuisine">
           {{ meal.cuisine }}
         </div>
+
+        {% endif %}
 
         <div class="meal-location">
           {{ meal.location }}
