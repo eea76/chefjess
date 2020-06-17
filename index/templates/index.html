@@ -7,7 +7,7 @@
 
     {% for meal in meals %}
     <div class="meal-container">
-      <a href="{% url 'meal_detail' meal_type=meal.meal_type id=meal.id %}">
+      <a href="{% url 'meal_detail' id=meal.id %}">
         <div class="meal">
           <div class="image-container">
             <div class="image">

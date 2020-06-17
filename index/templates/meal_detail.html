@@ -4,11 +4,13 @@
 
 <div class="meal-detail-container">
 
+
   <div class="meal-image">
     <img src= "{{ meal.meal_image.url}}" />
   </div>
 
   <div class="meal-info detail-container">
+
     <div class="meal-about">
       <div class="meal-name">
         {{ meal.meal_name }}
@@ -46,24 +48,6 @@
 
   {% if meal.person.all %}
   <div class="details-container detail-container">
-    <!--<div class="recipe">
-      {{ meal.recipe }}
-    </div>-->
-
-    <!--{% if meal.recipe.ingredient %}
-    <div class="ingredients">
-      <ul>Ingredients
-        {% for ingredient in meal.recipe.ingredient.all %}
-        <li>{{ingredient.ingredient_name}}
-          {% if ingredient.notes %} ({{ingredient.notes}}) {%endif%}
-        </li>
-        {%endfor%}
-      </ul>
-
-    </div>
-
-    {% endif %} -->
-
 
     <div class="person-container">
       People I ate this meal with:
@@ -78,8 +62,9 @@
   {% endif %}
 
   <div class="navigation-container">
+    <a class = "button" href="{% url 'meal_edit' id=meal.id %}">Edit this meal</a>
     {% if prev_meal %}
-    <a href="{% url 'meal_detail' prev_meal.meal_type prev_meal.id %}"><<< Prev Meal</a>
+    <a href="{% url 'meal_detail' prev_meal.id %}"><<< Prev Meal</a>
     {% else %}
     <span class="grayed-out"><<< Previous</span>
     {% endif %}
@@ -87,7 +72,7 @@
     <a href="/">Back to Home</a>
 
     {% if next_meal %}
-    <a href="{% url 'meal_detail' next_meal.meal_type next_meal.id %}">Next Meal >>></a>
+    <a href="{% url 'meal_detail' next_meal.id %}">Next Meal >>></a>
         {% else %}
     <span class="grayed-out">Next >>></span>
 

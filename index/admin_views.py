@@ -3,7 +3,7 @@ from sendgrid.helpers.mail import *
 from decouple import config
 import json
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
@@ -30,6 +30,28 @@ def new_meal(request):
             return redirect('meal_detail', meal_type=meal.meal_type, id=meal.id)
     else:
         form = MealForm()
+
+    obj = {
+        'form': form
+    }
+
+    return render(request, 'form.html', obj)
+
+
+@login_required
+def meal_edit(request, id):
+    meal = get_object_or_404(Meal, id=id)
+
+    if request.method == 'POST':
+        form = MealForm(request.POST, instance=meal)
+
+        if form.is_valid():
+            meal = form.save(commit=False)
+            meal.save()
+
+            return redirect('meal_detail', id=meal.id)
+    else:
+        form = MealForm(instance=meal)
 
     obj = {
         'form': form

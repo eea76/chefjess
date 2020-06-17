@@ -14,7 +14,7 @@ def index(request):
     return render(request, 'index.html', obj)
 
 
-def meal_detail(request, meal_type, id):
+def meal_detail(request, id):
     meal = get_object_or_404(Meal, id=id)
 
     next_meal = Meal.objects.filter(id__gt=meal.id, date__isnull=False).order_by('date').first()
