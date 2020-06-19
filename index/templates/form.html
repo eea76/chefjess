@@ -6,6 +6,7 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
+    {{ formset.as_table }}
     <button type="submit">Save</button>
   </form>
 </div>

@@ -10,6 +10,9 @@
   </div>
 
   <div class="meal-info detail-container">
+    {% for m in meal.images_set.all %}
+    <img src="{{ m.image.url }}" />
+    {% endfor %}
 
     <div class="meal-about">
       <div class="meal-name">

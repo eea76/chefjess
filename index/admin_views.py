@@ -12,27 +12,45 @@ from django.http import HttpResponse
 from .forms import MealForm, RecipeForm, IngredientForm, PersonForm
 from .models import *
 
+from django.forms import modelformset_factory
+
 
 @login_required
 def new_meal(request):
+    ImageFormset = modelformset_factory(Images, fields=('image',), extra=2)
     if request.method == 'POST':
         form = MealForm(request.POST, request.FILES)
-        if form.is_valid():
+        formset = ImageFormset(request.POST or None, request.FILES or None)
+        if form.is_valid() and formset.is_valid():
             meal = form.save(commit=False)
             meal.save()
             form.save_m2m()
+
+            for f in formset:
+                try:
+                    photo = Images(meal=meal, image=f.cleaned_data['image'])
+                    photo.save()
+
+
+                except Exception as e:
+                    break
 
             admin_name = config('admin')
             admin = User.objects.get(username=admin_name)
             admin_email = config('admin_email')
             send_email(admin.email, 'Jess posted a new meal', 'meal', admin_email)
 
-            return redirect('meal_detail', meal_type=meal.meal_type, id=meal.id)
+            # return redirect('meal_detail', id=meal.id)
+            return redirect('/')
+
+
     else:
         form = MealForm()
+        formset = ImageFormset(queryset=Images.objects.none())
 
     obj = {
-        'form': form
+        'form': form,
+        'formset': formset,
     }
 
     return render(request, 'form.html', obj)
