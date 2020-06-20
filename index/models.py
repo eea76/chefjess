@@ -90,12 +90,7 @@ def _update_filename(instance, filename, path):
     path = path
     filename = str(uuid.uuid4())
     print("-------")
-    print("-------")
-    print("-------")
-    print("-------")
     print(f"this image's file name is {filename}")
-    print("-------")
-    print("-------")
     print("-------")
 
     return os.path.join(path, filename)
@@ -124,7 +119,7 @@ class Meal(models.Model):
 
 class Images (models.Model):
     meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    image = ResizedImageField(size=[300, 300], crop=['middle', 'center'], upload_to=upload_to("images/"), null=True, blank=True)
 
     def __str__(self):
         return self.meal.meal_name

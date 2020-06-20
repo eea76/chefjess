@@ -245,6 +245,8 @@
     list-style-type: none; }
     .meal-detail-container .details-container .person-container ul li {
       padding: 2px 15px 0; }
+  .meal-detail-container .extra-images-container {
+    text-align: center; }
   .meal-detail-container .navigation-container {
     max-width: 500px;
     margin: 30px auto;
