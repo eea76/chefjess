@@ -16,8 +16,8 @@ def index(request):
 def meal_detail(request, id):
     meal = get_object_or_404(Meal, id=id)
 
-    next_meal = Meal.objects.filter(date__gt=meal.id, date__isnull=False).order_by('date').first()
-    prev_meal = Meal.objects.filter(date__lt=meal.id, date__isnull=False).order_by('-date').first()
+    next_meal = Meal.objects.filter(date__gt=meal.date, date__isnull=False).order_by('date').first()
+    prev_meal = Meal.objects.filter(date__lt=meal.date, date__isnull=False).order_by('-date').first()
 
     obj = {
         'meal': meal,
