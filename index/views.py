@@ -32,6 +32,10 @@ def meal_detail(request, id):
     return render(request, 'meal_detail.html', obj)
 
 
+def about_me(request):
+    return render(request, 'about_me.html')
+
+
 def recipe_detail(request, id):
     recipe = get_object_or_404(Recipe, id=id)
 

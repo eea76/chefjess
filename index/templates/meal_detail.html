@@ -3,6 +3,15 @@
 {% block content %}
 
 <div class="content-container">
+    <div class="row centered">
+        <h2>{{ meal.meal_name }}</h2>
+        <p>{{ meal.date }}</p>
+        {% if meal.location %}<p>{{ meal.location }}{% endif %}</p>{% if meal.meal_type %} {{ meal.meal_type }} •{% endif %}
+        {% if meal.cuisine %}{{ meal.cuisine }}{% endif %}
+    </div>
+
+    <hr>
+
     <div class="meal-row row">
         <div class="eight columns">
             <div class="clearfix" style="max-width:474px;">
@@ -22,39 +31,18 @@
         </div>
 
         <div class="four columns">
-            <p><strong>{{ meal.date }}</strong></p>
-            {% if meal.location %}<p>{{ meal.location }}</p>{% endif %}
-            <hr>
             <p>{{ meal.notes|linebreaks }}</p>
-
-            {% if meal.meal_type %}
-        <div class="meal-meta meal-type">
-          • {{ meal.meal_type }} •
-        </div>
-
-        {% endif %}
-
-        {% if meal.cuisine %}
-        <div class="meal-meta cuisine">
-          {{ meal.cuisine }}
-        </div>
-
-        {% endif %}
-
+            <hr>
             {% if meal.person.all %}
-              <div class="details-container detail-container">
-
-                <div class="person-container">
-                  People I ate this meal with:
-                  <ul>
-                  {% for person in meal.person.all %}
+            <div class="person-container">
+                People I ate this meal with:
+                <ul>
+                    {% for person in meal.person.all %}
                     <li>{{person}}</li>
-                  {% endfor %}
-                  </ul>
-                </div>
-
-              </div>
-              {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
         </div>
     </div>
 
@@ -63,25 +51,25 @@
     <div class="row">
 
         {% if user.is_authenticated %}
-        <div style="font-size:10px;" class="navigation-container">
+        <div class="navigation-container">
             {% else %}
             <div class="navigation-container">
                 {% endif %}
                 {% if user.is_authenticated %}
-                <a class = "button" href="{% url 'meal_edit' id=meal.id %}">Edit this meal</a>
+                <a class="button" href="{% url 'meal_edit' id=meal.id %}">Edit this meal</a>
                 {% endif %}
                 {% if prev_meal %}
-                <a href="{% url 'meal_detail' prev_meal.id %}"><<< Prev Meal</a>
+                <a class="button" href="{% url 'meal_detail' prev_meal.id %}"><<< Prev Meal</a>
                 {% else %}
-                <span class="grayed-out"><<< Previous</span>
+                <span class="button grayed-out"><<< Previous</span>
                 {% endif %}
 
-                <a href="/">Back to Home</a>
+                <a class="button" href="/">Back to Home</a>
 
                 {% if next_meal %}
-                <a href="{% url 'meal_detail' next_meal.id %}">Next Meal >>></a>
+                <a class="button" href="{% url 'meal_detail' next_meal.id %}">Next Meal >>></a>
                 {% else %}
-                <span class="grayed-out">Next >>></span>
+                <span class="button grayed-out">Next >>></span>
 
                 {% endif %}
             </div>

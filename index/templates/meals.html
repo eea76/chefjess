@@ -8,7 +8,7 @@
 
     <div class="row meal-row">
         {% for meal in meals %}
-        <div class="three columns meal-column">
+        <div class="four columns meal-column">
             <a href="{% url 'meal_detail' id=meal.id %}">
                 <img class="meal-image meal-thumbnail lazy" data-src="{{ meal.meal_image.url }}" />
 
@@ -20,7 +20,7 @@
             </a>
         </div>
 
-        {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+        {% if forloop.counter|divisibleby:"3" and not forloop.last %}
     </div>
 
     <div class="row meal-row">

@@ -7,6 +7,7 @@ urlpatterns = [
   # user urls
   path('', views.index, name='index'),
   path('meals', views.meals, name='meals'),
+  path('about_me', views.about_me, name='about_me'),
   path('meal/<int:id>/', views.meal_detail, name='meal_detail'),
   path('recipe/<int:id>/', views.recipe_detail, name='recipe_detail'),
 
