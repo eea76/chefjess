@@ -2,26 +2,32 @@
 
 {% block content %}
 
-<div class="meal-detail-container">
-
-
-  <div class="meal-image">
-    <img src= "{{ meal.meal_image.url}}" />
-  </div>
-
-  <div class="meal-info detail-container">
-
-    <div class="meal-about">
-      <div class="meal-name">
-        {{ meal.meal_name }}
-      </div>
-
-      <div class="meal-content">
-        <div class="meal-meta meal-date">
-          {{ meal.date }}
+<div class="content-container">
+    <div class="meal-row row">
+        <div class="eight columns">
+            <div class="clearfix" style="max-width:474px;">
+                <ul id="image-gallery" class="slideshow gallery list-unstyled cS-hidden">
+                    <li data-thumb="{{ meal.meal_image.url }}">
+                        <img class="meal-image" src="{{ meal.meal_image.url }}" />
+                    </li>
+                    {% if meal.images_set.all %}
+                    {% for m in meal.images_set.all %}
+                    <li data-thumb="{{ m.image.url }}">
+                        <img class="meal-image" src="{{ m.image.url }}" />
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
         </div>
 
-        {% if meal.meal_type %}
+        <div class="four columns">
+            <p><strong>{{ meal.date }}</strong></p>
+            {% if meal.location %}<p>{{ meal.location }}</p>{% endif %}
+            <hr>
+            <p>{{ meal.notes|linebreaks }}</p>
+
+            {% if meal.meal_type %}
         <div class="meal-meta meal-type">
           • {{ meal.meal_type }} •
         </div>
@@ -35,64 +41,52 @@
 
         {% endif %}
 
-        <div class="meal-location">
-          {{ meal.location }}
+            {% if meal.person.all %}
+              <div class="details-container detail-container">
+
+                <div class="person-container">
+                  People I ate this meal with:
+                  <ul>
+                  {% for person in meal.person.all %}
+                    <li>{{person}}</li>
+                  {% endfor %}
+                  </ul>
+                </div>
+
+              </div>
+              {% endif %}
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="meal-notes detail-container">
-    {{ meal.notes|linebreaks }}
-  </div>
-
-  {% if meal.person.all %}
-  <div class="details-container detail-container">
-
-    <div class="person-container">
-      People I ate this meal with:
-      <ul>
-      {% for person in meal.person.all %}
-        <li>{{person}}</li>
-      {% endfor %}
-      </ul>
     </div>
 
-  </div>
-  {% endif %}
+    <hr>
 
-  {% if meal.images_set.all %}
-  <div class="extra-images-container">
-    {% for m in meal.images_set.all %}
+    <div class="row">
 
-    <img src="{{ m.image.url }}" />
+        {% if user.is_authenticated %}
+        <div style="font-size:10px;" class="navigation-container">
+            {% else %}
+            <div class="navigation-container">
+                {% endif %}
+                {% if user.is_authenticated %}
+                <a class = "button" href="{% url 'meal_edit' id=meal.id %}">Edit this meal</a>
+                {% endif %}
+                {% if prev_meal %}
+                <a href="{% url 'meal_detail' prev_meal.id %}"><<< Prev Meal</a>
+                {% else %}
+                <span class="grayed-out"><<< Previous</span>
+                {% endif %}
 
-    {% endfor %}
-  </div>
-  {% endif %}
+                <a href="/">Back to Home</a>
 
-  {% if user.is_authenticated %}
-  <div style="font-size:10px;" class="navigation-container">
-  {% else %}
-  <div class="navigation-container">
-  {% endif %}
-    {% if user.is_authenticated %}
-    <a class = "button" href="{% url 'meal_edit' id=meal.id %}">Edit this meal</a>
-    {% endif %}
-    {% if prev_meal %}
-    <a href="{% url 'meal_detail' prev_meal.id %}"><<< Prev Meal</a>
-    {% else %}
-    <span class="grayed-out"><<< Previous</span>
-    {% endif %}
+                {% if next_meal %}
+                <a href="{% url 'meal_detail' next_meal.id %}">Next Meal >>></a>
+                {% else %}
+                <span class="grayed-out">Next >>></span>
 
-    <a href="/">Back to Home</a>
-
-    {% if next_meal %}
-    <a href="{% url 'meal_detail' next_meal.id %}">Next Meal >>></a>
-        {% else %}
-    <span class="grayed-out">Next >>></span>
-
-    {% endif %}
-  </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

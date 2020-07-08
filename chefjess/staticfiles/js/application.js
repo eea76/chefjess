@@ -1,25 +1,55 @@
 // 1 in 25 chance of a popup saying mahal kita
 
 $(document).ready(function() {
-    // hamburger menu animation
-    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
 
-    var hamburgers = document.querySelectorAll(".hamburger");
-    if (hamburgers.length > 0) {
-        forEach(hamburgers, function(hamburger) {
-            hamburger.addEventListener("click", function() {
-                this.classList.toggle("is-active");
-            }, false);
-        });
-    }
+    (function () {
+                function logElementEvent(eventName, element) {
+                    console.log(Date.now(), eventName, element.getAttribute("data-src")
+                    );
+                }
 
+                var callback_enter = function (element) {
+                    logElementEvent("🔑 ENTERED", element);
+                };
 
-    // toggle mobile menu
-    $('.hamburger').on('click', function() {
-        $('.mobile-menu').slideToggle(250, 'swing', function() {
+                var callback_exit = function (element) {
+                    logElementEvent("🚪 EXITED", element);
+                };
 
-        });
-    });
+                var callback_loading = function (element) {
+                    logElementEvent("⌚ LOADING", element);
+                };
+
+                var callback_loaded = function (element) {
+                    logElementEvent("👍 LOADED", element);
+                };
+
+                var callback_error = function (element) {
+                    logElementEvent("💀 ERROR", element);
+                    element.src ="https://via.placeholder.com/440x560/?text=Error+Placeholder";
+                };
+
+                var callback_finish = function () {
+                    logElementEvent("✔️ FINISHED", document.documentElement);
+                };
+
+                var callback_cancel = function (element) {
+                    logElementEvent("🔥 CANCEL", element);
+                };
+
+                var ll = new LazyLoad({
+                    threshold: 0,
+                    // Assign the callbacks defined above
+                    callback_enter: callback_enter,
+                    callback_exit: callback_exit,
+                    callback_cancel: callback_cancel,
+                    callback_loading: callback_loading,
+                    callback_loaded: callback_loaded,
+                    callback_error: callback_error,
+                    callback_finish: callback_finish
+                });
+            })();
+
 
 
     //get page load info

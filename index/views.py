@@ -1,16 +1,20 @@
 from .models import *
 from django.shortcuts import render, get_object_or_404, redirect
-
-
+from django.http import HttpResponse
 
 def index(request):
+
+    return render(request, 'index.html')
+
+
+def meals(request):
     meals = Meal.objects.all().order_by('-date')
 
     obj = {
         'meals': meals,
     }
 
-    return render(request, 'index.html', obj)
+    return render(request, 'meals.html', obj)
 
 
 def meal_detail(request, id):

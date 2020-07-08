@@ -1,36 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="index">
+<div class="content-container">
+    <h1 class="centered">Meals</h1>
 
-  <div class="meals-container">
+    <hr>
 
-    {% for meal in meals %}
-    <div class="meal-container">
-      <a href="{% url 'meal_detail' id=meal.id %}">
-        <div class="meal">
-          <div class="image-container">
-            <div class="image">
-              <img src="{{ meal.meal_image.url }}" />
-            </div>
-          </div>
+    <div class="row meal-row">
+        {% for meal in meals %}
+        <div class="three columns meal-column">
+            <a href="{% url 'meal_detail' id=meal.id %}">
+                <img class="meal-image meal-thumbnail lazy" data-src="{{ meal.meal_image.url }}" />
 
-
-          <div class="meal-info">
-            <!-- class is meal-names to avoid conflicts with meal_detail.html meal-name class -->
-            <h2 class="meal-names">{{meal.meal_name}}</h2>
-            <div class="meal-text">
-              {{ meal.date }} {% if meal.meal_type %}- {{ meal.meal_type }}{% endif %}
-            </div>
+                <div class="overlay">
+                    <div class="meal-name">
+                        {{ meal.meal_name }}
+                    </div>
+                </div>
+            </a>
         </div>
-      </div>
-    </a>
+
+        {% if forloop.counter|divisibleby:"4" and not forloop.last %}
     </div>
 
+    <div class="row meal-row">
+
+    {% endif %}
 
   {% endfor %}
 
-  </div>
 </div>
 
 <script>

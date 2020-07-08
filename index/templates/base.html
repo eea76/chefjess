@@ -12,11 +12,34 @@
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
         <link rel="stylesheet" href="{% static 'css/customskeleton.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/lightslider.css' %}"/>
 
         <script src=" {% static 'js/jquery-3.2.1.min.js' %}"></script>
         <script src=" {% static 'js/lazyload.min.js' %}"></script>
         <script src=" {% static 'js/detect.min.js' %}"></script>
         <script src=" {% static 'js/application.js' %}"></script>
+        <script src=" {% static 'js/lightslider.js' %}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $("#content-slider").lightSlider({
+                    loop:true,
+                    keyPress:true
+                });
+                $('#image-gallery').lightSlider({
+                    gallery:true,
+                    item:1,
+                    thumbItem:9,
+                    slideMargin: 0,
+                    speed:500,
+                    auto:false,
+                    loop:true,
+                    onSliderLoad: function() {
+                        $('#image-gallery').removeClass('cS-hidden');
+                    }
+                });
+            });
+        </script>
 
     </head>
 
@@ -40,10 +63,9 @@
                     </ul>
                 </div>
             </nav>
-        </div>
 
         {% block content %}
         {% endblock %}
-
+        </div>
     </body>
 </html>
