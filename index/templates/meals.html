@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="index">
+
+  <div class="meals-container">
+
+    {% for meal in meals %}
+    <div class="meal-container">
+      <a href="{% url 'meal_detail' id=meal.id %}">
+        <div class="meal">
+          <div class="image-container">
+            <div class="image">
+              <img src="{{ meal.meal_image.url }}" />
+            </div>
+          </div>
+
+
+          <div class="meal-info">
+            <!-- class is meal-names to avoid conflicts with meal_detail.html meal-name class -->
+            <h2 class="meal-names">{{meal.meal_name}}</h2>
+            <div class="meal-text">
+              {{ meal.date }} {% if meal.meal_type %}- {{ meal.meal_type }}{% endif %}
+            </div>
+        </div>
+      </div>
+    </a>
+    </div>
+
+
+  {% endfor %}
+
+  </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+
+      //random alert
+      var errorMessage = "Mahal kita"
+      var randomPopUp = Math.floor(Math.random() * 25) + 1;
+
+      if (randomPopUp == 1) {
+        alert(errorMessage);
+      }
+    })
+
+</script>
+
+{% endblock %}
+
+
