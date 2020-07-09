@@ -6,6 +6,7 @@ urlpatterns = [
 
   # user urls
   # path('', views.index, name='index'),
+  # restore / to index once home page is decided
   path('', views.meals, name='meals'),
   path('meals', views.meals, name='meals'),
   path('about_me', views.about_me, name='about_me'),
